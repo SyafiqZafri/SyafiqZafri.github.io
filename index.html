@@ -133,7 +133,7 @@
 							<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
 							<div class="inner">
 								<h4>PLC Programmer</h4>
-								<h5><a href="https://www.easypack.com.my/ms/">Easy Pack Technology Sdn Bhd</a> |
+								<h5><a href="https://www.macro-integration.com/">Easy Pack Technology Sdn Bhd</a> |
 									Pulau Pinang (Apr 2019 – Nov 2020)</h5>
 								<li>Created custom PLC programs and HMI for industrial automation solutions.</li>
 								<li>Enhanced legacy systems with optimized programming for efficiency and reliability.
@@ -144,7 +144,7 @@
 							<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
 							<div class="inner">
 								<h4>CNC Machinist Intern</h4>
-								<h5><a href="https://www.towam.com.my/">TOWA-M Sdn Bhd</a> | Pulau Pinang (Jul
+								<h5><a href="https://www.macro-integration.com/">TOWA-M Sdn Bhd</a> | Pulau Pinang (Jul
 									2018 – Dec 2018)</h5>
 								<li>Operated 3-axis CNC machines for precision machining tasks</li>
 								<li>Gained hands-on experience in part fabrication and milling processes.
@@ -162,16 +162,22 @@
 					<h3>Contact Me</h3>
 					<p>Whether you have questions, need technical support, or want to discuss project
 						opportunities, feel free to reach out.</p>
-					<form method="post" action="#">
+					<form method="post" action="https://wa.me/YOUR_PHONE_NUMBER" target="_blank"
+						onsubmit="return submitWhatsApp()">
 						<div class="row gtr-uniform">
-							<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name"
-									placeholder="Name" /></div>
-							<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email"
-									placeholder="Email" /></div>
-							<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" />
+							<div class="col-6 col-12-xsmall">
+								<input type="text" name="name" id="name" placeholder="Name" required />
 							</div>
-							<div class="col-12"><textarea name="message" id="message" placeholder="Message"
-									rows="6"></textarea></div>
+							<div class="col-6 col-12-xsmall">
+								<input type="email" name="email" id="email" placeholder="Email" required />
+							</div>
+							<div class="col-12">
+								<input type="text" name="subject" id="subject" placeholder="Subject" required />
+							</div>
+							<div class="col-12">
+								<textarea name="message" id="message" placeholder="Message" rows="6"
+									required></textarea>
+							</div>
 							<div class="col-12">
 								<ul class="actions">
 									<li><input type="submit" class="primary" value="Send Message" /></li>
@@ -541,3 +547,31 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 </body>
 
 </html>
+
+
+<script>
+	function submitWhatsApp() {
+		// Get form values
+		var name = document.getElementById("name").value;
+		var email = document.getElementById("email").value;
+		var subject = document.getElementById("subject").value;
+		var message = document.getElementById("message").value;
+
+		// Construct the WhatsApp message
+		var whatsappMessage = "Hello, you have a new message:\n\n" +
+			"Name: " + name + "\n" +
+			"Email: " + email + "\n" +
+			"Subject: " + subject + "\n" +
+			"Message: " + message;
+
+		// Encode the message for the URL
+		whatsappMessage = encodeURIComponent(whatsappMessage);
+
+		// Replace YOUR_PHONE_NUMBER with your full international phone number (e.g., 1234567890)
+		var whatsappURL = "https://wa.me/+60169886234R?text=" + whatsappMessage;
+
+		// Redirect to WhatsApp
+		window.open(whatsappURL, "_blank");
+		return false; // Prevent form submission
+	}
+</script>
